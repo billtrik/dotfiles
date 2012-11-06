@@ -1,0 +1,17 @@
+BLUE="\[\033[0;34m\]"
+FAT_BLUE="\[\033[1;34m\]"
+RED="\[\033[0;31m\]"
+FAT_RED="\[\033[1;31m\]"
+WHITE="\[\033[1;37m\]"
+PURPLE="\[\033[0;35m\]"
+FAT_PURPLE="\[\033[1;35m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOUR="\[\033[0m\]"
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+
+export PS1="${TITLEBAR}$FAT_PURPLE[$RED\u@\h:$BLUE\w$FAT_PURPLE][$PURPLE\$(rvm-prompt v g)\$(__git_ps1)$FAT_PURPLE]\n$GREEN\$$NO_COLOUR"
+
+#export CLICOLOR=1
+#export LSCOLORS=ExFxCxDxBxegedabagacad
