@@ -4,8 +4,13 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 
 
 # Set the usr/local dir before the default ones 
-PATH=.:/usr/local/sbin:/usr/local/bin:$PATH
+PATH=.:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
 export PATH
+
+
+# rbenv
+export RBENV_ROOT=/usr/local/opt/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 
 # Load the shell dotfiles:
