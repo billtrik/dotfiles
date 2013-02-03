@@ -12,6 +12,8 @@ export PATH
 export RBENV_ROOT=/usr/local/opt/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# node
+export NODE_PATH=/usr/local/lib/node_modules
 
 # Load the shell dotfiles:
 for file in ~/.{bash_prompt,aliases,functions}; do
