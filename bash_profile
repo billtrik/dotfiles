@@ -1,22 +1,4 @@
-# add the git stuff
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
-
-
-# Set the usr/local dir before the default ones 
-PATH=.:/usr/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$PATH
-export PATH
-
-
-# rbenv
-export RBENV_ROOT=/usr/local/opt/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# node
-export NODE_PATH=/usr/local/lib/node_modules
-
-# Load the shell dotfiles:
+# Load custom shell dotfiles:
 for file in ~/.{bash_prompt,aliases,functions}; do
   [ -r "$file" ] && source "$file"
 done
@@ -55,18 +37,37 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
-export EDITOR='subl -w'
+# Load git completions
+[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && source /usr/local/etc/bash_completion.d/git-prompt.sh
+[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && source /usr/local/etc/bash_completion.d/git-completion.bash
 
-## GRUNT STUFF
+# Include brew bins in PATH
+PATH=.:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH
+
+# Load NPM autocompletion
+[ -f /usr/local/lib/node_modules/npm/lib/utils/completion.sh ] && source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
+
+# Load GRUNT autocompletion
 eval "$(grunt --completion=bash)"
 
 
-## RAILS STUFF
+# RBENV STUFF
+# export RBENV_ROOT=/usr/local/opt/rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# NODE STUFF
+export NODE_PATH=/usr/local/lib/node_modules
+
+## RUBY STUFF
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
+
+export EDITOR='subl -w'
 
 echo Provided By Bilou Industries C.O.
 echo
