@@ -18,7 +18,7 @@ export NODE_PATH=/usr/local/lib/node_modules
 
 # Load the shell dotfiles:
 for file in ~/.{bash_prompt,aliases,functions}; do
-	[ -r "$file" ] && source "$file"
+  [ -r "$file" ] && source "$file"
 done
 unset file
 
@@ -35,7 +35,7 @@ shopt -s cdspell
 # * `autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
 # * Recursive globbing, e.g. `echo **/*.txt`
 for option in autocd globstar; do
-	shopt -s "$option" 2> /dev/null
+  shopt -s "$option" 2> /dev/null
 done
 
 # Prefer US English and use UTF-8

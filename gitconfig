@@ -1,6 +1,6 @@
 [user]
-	name = Bill Trikalinos
-	email = billtrik@gmail.com
+  name = Bill Trikalinos
+  email = billtrik@gmail.com
 [credential]
   helper = osxkeychain
 [alias]
@@ -10,7 +10,7 @@
   # `git di $number` shows the diff between the state `$number` revisions ago and the current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
   co = checkout
-	go = checkout -b
+  go = checkout -b
   ci = commit
   rb = rebase
   br = branch
@@ -46,11 +46,11 @@
   changelog = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
 [core]
-	editor = "subl -nw"
+  editor = "subl -nw"
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [merge]
 # Include summaries of merged commits in newly created merge commit messages
   log = true
