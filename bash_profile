@@ -60,6 +60,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # NODE STUFF
 export NODE_PATH=/usr/local/lib/node_modules
 
+## NPM STUFF
+PATH=./node_modules/.bin:$PATH
+
 ## RUBY STUFF
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000

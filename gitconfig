@@ -13,6 +13,8 @@
   go = checkout -b
   ci = commit
   rb = rebase
+  ri = rebase --interactive
+  fixup = commit --fixup
   br = branch
   pr = pull --rebase
   st = status
@@ -45,6 +47,12 @@
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
   changelog = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+[rebase]
+  autosquash = true
+[pull]
+  default = current
+[diff]
+  algorithm = patience
 [core]
   editor = "subl -nw"
   excludesfile = ~/.gitignore
