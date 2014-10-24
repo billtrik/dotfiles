@@ -51,9 +51,7 @@ export PATH
 # Load GRUNT autocompletion
 eval "$(grunt --completion=bash)"
 
-
 # RBENV STUFF
-# export RBENV_ROOT=/usr/local/opt/rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
@@ -62,6 +60,7 @@ export NODE_PATH=/usr/local/lib/node_modules
 
 ## NPM STUFF
 PATH=./node_modules/.bin:$PATH
+export PATH
 
 ## RUBY STUFF
 export RUBY_HEAP_MIN_SLOTS=1000000

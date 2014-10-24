@@ -2,6 +2,9 @@ alias vv="vi ~/.bash_profile"
 alias prof=". ~/.bash_profile"
 alias al="vi ~/.aliases"
 
+alias gti="git"
+alias be="bundle exec"
+
 alias mysql-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias mysql-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 

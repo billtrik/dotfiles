@@ -32,7 +32,6 @@
   reb = "!r() { git rebase -i HEAD~$1; }; r"
   ammend = commit --amend            # ammend your last commit
 
-
   # cherry-pick
   cp = cherry-pick -x               # grab a change from a branch
 
@@ -50,6 +49,8 @@
 [rebase]
   autosquash = true
 [pull]
+  default = current
+[push]
   default = current
 [diff]
   algorithm = patience
@@ -83,5 +84,3 @@
   added = yellow
   changed = green
   untracked = cyan
-[push]
-  default = current
