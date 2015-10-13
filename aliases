@@ -5,6 +5,23 @@ alias al="vi ~/.aliases"
 alias gti="git"
 alias be="bundle exec"
 
+alias update_npm="npm install -g npm@latest"
+
+alias chromedriver-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.chromedriver.plist"
+alias chromedriver-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.chromedriver.plist"
+
+alias mongodb-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+alias mongodb-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mongodb.plist"
+
+alias solr-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.solr.plist"
+alias solr-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.solr.plist"
+
+alias postgresql-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias postgresql-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+
+alias redis-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+alias redis-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.redis.plist"
+
 alias mysql-start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias mysql-stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 

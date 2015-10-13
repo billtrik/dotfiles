@@ -55,7 +55,7 @@
 [diff]
   algorithm = patience
 [core]
-  editor = "subl -nw"
+  editor = "vim"
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
 [apply]

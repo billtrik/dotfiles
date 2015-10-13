@@ -1,5 +1,5 @@
 # Load custom shell dotfiles:
-for file in ~/.{bash_prompt,aliases,functions}; do
+for file in ~/.{bash_prompt,aliases,functions,env}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
@@ -63,7 +63,7 @@ PATH=./node_modules/.bin:$PATH
 export PATH
 
 ## RUBY STUFF
-export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_GC_HEAP_INIT_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
