@@ -42,18 +42,18 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 [ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && source /usr/local/etc/bash_completion.d/git-completion.bash
 
 # Include brew bins in PATH
-PATH=.:/usr/local/sbin:/usr/local/bin:$PATH
+PATH=.:/usr/local/sbin:/usr/local/bin:/Users/billtrik/bin:$PATH
 export PATH
 
 # Load NPM autocompletion
 [ -f /usr/local/lib/node_modules/npm/lib/utils/completion.sh ] && source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
 
 # Load GRUNT autocompletion
-eval "$(grunt --completion=bash)"
+# eval "$(grunt --completion=bash)"
 
 # RBENV STUFF
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# export RBENV_ROOT=/usr/local/var/rbenv
+eval "$(rbenv init -)"
 
 # NODE STUFF
 export NODE_PATH=/usr/local/lib/node_modules
@@ -61,13 +61,6 @@ export NODE_PATH=/usr/local/lib/node_modules
 ## NPM STUFF
 PATH=./node_modules/.bin:$PATH
 export PATH
-
-## RUBY STUFF
-export RUBY_GC_HEAP_INIT_SLOTS=1000000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_HEAP_FREE_MIN=500000
 
 export EDITOR='subl -w'
 
