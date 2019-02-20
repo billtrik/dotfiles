@@ -30,7 +30,7 @@
   credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
   # Interactive rebase with the given number of latest commits
   reb = "!r() { git rebase -i HEAD~$1; }; r"
-  ammend = commit --amend            # ammend your last commit
+  amend = commit --amend            # amend your last commit
 
   # cherry-pick
   cp = cherry-pick -x               # grab a change from a branch
