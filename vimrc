@@ -18,6 +18,7 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set nowrap                " don't wrap text
 set history=100           " keep 100 lines of history
+set number                " show numbers by default
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
