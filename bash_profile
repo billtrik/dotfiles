@@ -37,32 +37,57 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
-# Load git completions
-[ -f /usr/local/etc/bash_completion.d/git-prompt.sh ] && source /usr/local/etc/bash_completion.d/git-prompt.sh
-[ -f /usr/local/etc/bash_completion.d/git-completion.bash ] && source /usr/local/etc/bash_completion.d/git-completion.bash
+# Brew completion
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
 
 # Include brew bins in PATH
-PATH=.:/usr/local/sbin:/usr/local/bin:/Users/billtrik/bin:$PATH
-export PATH
+export PATH=.:$HOMEBREW_PREFIX/sbin:$HOMEBREW_PREFIX/bin:$HOME/bin:$PATH
 
-# Load NPM autocompletion
-[ -f /usr/local/lib/node_modules/npm/lib/utils/completion.sh ] && source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
+# NODE PATH
+export NODE_PATH=$HOMEBREW_PREFIX/lib/node_modules
 
-# Load GRUNT autocompletion
-# eval "$(grunt --completion=bash)"
+## NPM PATH
+export PATH=./node_modules/.bin:$PATH
+
+# Yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+## Add ~/bin to the path
+export PATH=~/bin:$PATH
+ 
+# Poetry stuff
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # RBENV STUFF
 # export RBENV_ROOT=/usr/local/var/rbenv
 eval "$(rbenv init -)"
 
-# NODE STUFF
-export NODE_PATH=/usr/local/lib/node_modules
+## Direnv
+eval "$(direnv hook bash)"
 
-## NPM STUFF
-PATH=./node_modules/.bin:$PATH
-export PATH
+## ondir
+[ -f $HOME/.hook_ondir.sh ] && source $HOME/.hook_ondir.sh
 
-export EDITOR='subl -w'
+# Deprecations
+export BASH_SILENCE_DEPRECATION_WARNING=1
+export TK_SILENCE_DEPRECATION=1
+
+# Terraform
+complete -C "${HOMEBREW_PREFIX}/bin/terraform" terraform
+
+export EDITOR='vim'
 
 echo Provided By Bilou Industries C.O.
 echo
