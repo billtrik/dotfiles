@@ -14,6 +14,8 @@
   ci = commit
   rb = rebase
   ri = rebase --interactive
+  rc = rebase --cont
+  ra = rebase --abort
   fixup = commit --fixup
   br = branch
   pr = pull --rebase
@@ -48,16 +50,22 @@
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
 [rebase]
   autosquash = true
+  committer-date-is-author-date = true
 [pull]
   default = current
 [push]
   default = current
+  followTags = true
+  autoSetupRemote = true
 [diff]
   algorithm = patience
+  colorMovedWS = allow-indentation-change
+  colorMoved = dimmed-zebra
 [core]
   editor = "vim"
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [apply]
   whitespace = nowarn
 [merge]
@@ -66,9 +74,9 @@
 [remote "origin"]
   prune = true
 # Use `origin` as the default remote on the `master` branch in all cases
-[branch "master"]
+[branch "main"]
   remote = origin
-  merge = refs/heads/master
+  merge = refs/heads/main
 [help]
   autocorrect = 1
 [color]
@@ -86,3 +94,8 @@
   added = yellow
   changed = green
   untracked = cyan
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
